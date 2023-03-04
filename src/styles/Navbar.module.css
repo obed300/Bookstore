@@ -1,0 +1,51 @@
+
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  font-family: Montserrat, sans-serif;
+}
+
+.activeLink {
+  font-weight: bold;
+}
+
+.nav a {
+  text-decoration: none;
+  margin: 0 1rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.2s ease-in-out;
+  font-size: 1.875rem;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-weight: normal;
+  color: var(--azure);
+}
+
+.nav a:hover {
+  border-bottom-color: #333;
+}
+
+nav h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #007fff;
+}
+
+.Books {
+  font-size: 0.813rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.9px;
+  color: var(--black-two);
+}
