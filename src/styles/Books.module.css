@@ -1,0 +1,203 @@
+.listContainer {
+  margin-left: 1.688rem;
+  padding-top: 2rem;
+}
+
+.list {
+  margin-bottom: 10px;
+  list-style: none;
+  width: 75rem;
+  height: 10.625rem;
+  border-radius: 4px;
+  border: solid 1px white;
+  background-color: #f8f8f8;
+}
+
+.event {
+  width: 3.063rem;
+  height: 1.125rem;
+  margin: 0 2.438rem 0 0;
+  opacity: 0.5;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333;
+}
+
+.title {
+  width: 12.313rem;
+  height: 1.813rem;
+  margin: 0.188rem 20.188rem 0 0;
+  font-size: 1.375rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: #333;
+}
+
+.name {
+  width: 6.688rem;
+  height: 1.188rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #007bff;
+}
+
+button {
+  width: 4.563rem;
+  height: 1.188rem;
+  margin: 0.188rem 0.938rem 0.125rem 0;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #007bff;
+  background-color: #f7f7f7;
+  border: none;
+}
+
+.verticalLine {
+  border-left: 2px solid rgb(239, 237, 237);
+  height: 1.5rem;
+}
+
+.comment {
+  margin-left: -5px;
+}
+
+.progress {
+  width: 4.25rem;
+  height: 4.25rem;
+  position: relative;
+  margin-top: 3rem;
+}
+
+.progressCircle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ebebeb;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progressOverlay {
+  width: 50%;
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 50% 0 0 50%;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform-origin: 100% 50%;
+  animation: progress-anim 2s linear forwards;
+}
+
+.progressValue {
+  width: 90%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+@keyframes progress-anim {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-180deg);
+  }
+}
+
+.AllContain {
+  display: flex;
+}
+
+.otherSide {
+  display: flex;
+}
+
+.percentage {
+  width: 4.25rem;
+  height: 2.438rem;
+  margin: 0.063rem 5.75rem 0 0.688rem;
+  font-size: 2rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-top: 3.188rem;
+}
+
+.complete {
+  width: 5rem;
+  height: 1.125rem;
+  opacity: 0.5;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #222;
+}
+
+.chapter {
+  border-left: 2px solid rgb(239, 237, 237);
+  height: 7.375rem;
+}
+
+.current {
+  width: 7.875rem;
+  height: 1.125rem;
+  margin: 0.063rem 3.625rem 0 3.688rem;
+  margin-top: 2.063rem;
+  opacity: 0.5;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #222;
+}
+
+.myChapter {
+  width: 4.688rem;
+  height: 1.313rem;
+  margin: 0.438rem 6.813rem 0.25rem 3.688rem;
+  font-size: 1rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: #222;
+}
+
+.update {
+  width: 11.5rem;
+  height: 2.063rem;
+  margin: 0.75rem 0 0.563rem 3.688rem;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  border-radius: 3px;
+  background-color: #0077b6;
+}
