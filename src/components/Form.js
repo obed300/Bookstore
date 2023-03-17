@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
+// import { nanoid } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 import styles from '../styles/Form.module.css';
-import { addBook } from '../redux/book/Bookslice';
+import { addBook, bookPost } from '../features/book/Bookslice';
 
 function Form() {
   const [title, setTitle] = useState('');
@@ -10,19 +11,20 @@ function Form() {
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onAuthorChanged = (e) => setAuthor(e.target.value);
+
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (title && author) {
-      dispatch(
-        addBook({
-          item_id: nanoid(),
-          title,
-          author,
-        }),
-      );
-    }
+    if (!title.trim() || !author.trim()) return;
+    const bookData = {
+      item_id: uuidv4(),
+      title,
+      author,
+
+    };
+    dispatch(addBook(bookData));
+    dispatch(bookPost(bookData));
     setTitle('');
     setAuthor('');
   };

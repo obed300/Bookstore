@@ -1,9 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Book from './Book';
+import { fetchBooks } from '../features/book/Bookslice';
 
 function Displaybooks() {
   const { books } = useSelector((state) => state.book);
+  //   const { categories } = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
 
   return (
     <div>
@@ -15,7 +22,6 @@ function Displaybooks() {
               author={book.author}
               id={book.item_id}
             />
-
           </li>
         ))}
       </ul>
