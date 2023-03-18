@@ -1,31 +1,27 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/neTvlShlUagV28v2Fadm';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/neTvlShlUagV28v2Fadm/books';
 
 const initialState = {
   books: [],
+  status: 'idle',
 };
 
-export const bookPost = createAsyncThunk(
-  'post/bookPost',
-  async (bookData, thunkAPI) => {
-    try {
-      const response = await axios.post(`${URL}/books`, bookData);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error?.data.message || 'Something went wrong. Please check later!',
-      );
-    }
-  },
-);
+export const bookPost = createAsyncThunk('books/addBookToAPI', async (newbook) => {
+  const response = await fetch(URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newbook),
+  });
+  const data = await response.json();
+  return data;
+});
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, thunkAPI) => {
   try {
-    const response = await axios(`${URL}/books`);
-    return response.data;
+    const response = await fetch(URL);
+    const data = await response.json();
+    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(
       error?.data.message || 'Something went wrong. Please check later!',
@@ -37,8 +33,9 @@ export const removeBookFromAPI = createAsyncThunk(
   'books/deleteBook',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`${URL}/books/${id}`);
-      return response.data;
+      const response = await fetch(`${URL}/books/${id}`, { method: 'DELETE' });
+      const data = await response.json();
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error?.data.message || 'Something went wrong. Please check later!',
@@ -52,7 +49,6 @@ const bookSlice = createSlice({
   initialState,
   reducers: {
     addBook: (state, action) => {
-      // const bookData = actions.payload;
       state.books.push(action.payload);
     },
     removeBook: (state, action) => {
@@ -65,30 +61,34 @@ const bookSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(bookPost.pending, (state) => {
-      state.isLoading = true;
-    }).addCase(bookPost.fulfilled, (state) => {
-      state.isLoading = false;
-    }).addCase(bookPost.rejected, (state) => {
-      state.isLoading = false;
+    builder.addCase(bookPost.fulfilled, (state, action) => {
+      const states = state;
+      states.status = 'success';
+      states.books = [
+        ...states.books,
+        action.payload,
+      ];
     });
 
     builder.addCase(fetchBooks.pending, (state) => {
-      state.isLoading = true;
+      const states = state;
+      states.isLoading = true;
     }).addCase(fetchBooks.fulfilled, (state, action) => {
-      state.isLoading = false;
+      const states = state;
+      states.isLoading = false;
       const responseObj = action.payload;
 
       const newBookArr = [];
-      // eslint-disable-next-line no-restricted-syntax, guard-for-in
-      for (const id in responseObj) {
-        const bookObj = responseObj[id][0];
+      Object.entries(responseObj).forEach(([id, bookArray]) => {
+        const bookObj = bookArray[0];
         bookObj.item_id = id;
         newBookArr.push(bookObj);
-      }
-      state.books = newBookArr;
+      });
+
+      states.books = newBookArr;
     }).addCase(fetchBooks.rejected, (state) => {
-      state.isLoading = false;
+      const states = state;
+      states.isLoading = false;
     });
   },
 

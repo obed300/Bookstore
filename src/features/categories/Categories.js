@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  categories: [],
+  categories: ['Horror', 'Fiction', 'Romance', 'History', 'Biography'],
   status: '',
 };
 

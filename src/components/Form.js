@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { nanoid } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../styles/Form.module.css';
 import { addBook, bookPost } from '../features/book/Bookslice';
 
 function Form() {
+  const { categories } = useSelector((state) => state.categories);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
@@ -17,14 +18,16 @@ function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!title.trim() || !author.trim()) return;
-    const bookData = {
+    const category = categories[Math.floor(Math.random() * categories.length)];
+    const payload = {
       item_id: uuidv4(),
       title,
       author,
+      category,
 
     };
-    dispatch(addBook(bookData));
-    dispatch(bookPost(bookData));
+    dispatch(addBook(payload));
+    dispatch(bookPost(payload));
     setTitle('');
     setAuthor('');
   };
