@@ -33,7 +33,7 @@ export const removeBookFromAPI = createAsyncThunk(
   'books/deleteBook',
   async (id, thunkAPI) => {
     try {
-      const response = await fetch(`${URL}/books/${id}`, { method: 'DELETE' });
+      const response = await fetch(`${URL}/${id}`, { method: 'DELETE' });
       const data = await response.json();
       return data;
     } catch (error) {
