@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><b>Math Magicians</b></h1>
+  <h1><b>Books Store</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -17,8 +17,7 @@
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
-    - [Deployment](#deployment)
-  - [👥 Authors ](#-authors-)
+  - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
@@ -74,6 +73,7 @@ https://github.com/obed300/Bookstore.git
 
 ### Key Features <a name="key-features"></a>
 - **[react]**
+- **[redux]**
 - **[ES6 features]**
 - **[notably modules]**
 - **[html/css]**
@@ -101,7 +101,7 @@ Clone this repository to your desired folder:
 Install all the dependencies required for the website, by using the command below
 
 ```sh
-  cd math-magician
+  cd bookstore
 ```
 
 ### Usage
@@ -112,13 +112,10 @@ For making changes to the project you should clone the project.
 
 If you want to work with Chrome Developer Tools, simply run the HTML document in Google Chrome and right-click the HTML element you want to inspect. Click on "Inspect" and you will have the tools to run, analyze, and even debug the code.
 
-### Deployment
-
-If you like to deploy the website to the github pages please follow the link here.
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Author <a name="author"></a>
 
 👤 **Obed Bamfo**
 - GitHub: [obed300](https://github.com/obed300)
