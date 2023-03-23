@@ -2,7 +2,7 @@
   width: 12.875rem;
   height: 1.5rem;
   margin: 1.813rem 32.75rem 1.188rem 0;
-  margin-left: 2.4rem;
+  margin-left: 4.8rem;
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
@@ -13,7 +13,7 @@
 }
 
 .form {
-  margin-left: 2.4rem;
+  margin-left: 4.8rem;
 }
 
 .titleInput {
@@ -41,5 +41,5 @@
   margin: 1.188rem 0 0 2.125rem;
   padding: 0.801rem 1.188rem 0.886rem 1.375rem;
   border-radius: 3px;
-  background-color: #0077be;
+  background-color: #007fff;
 }
