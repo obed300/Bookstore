@@ -23,8 +23,8 @@ function Displaybooks() {
               author={book.author}
               id={book.item_id}
               category={categories[Math.floor(Math.random() * categories.length)]}
-              titleClassName={styles.title} /* apply styles to title element */
-              authorClassName={styles.author} /* apply styles to author element */
+              titleClassName={styles.title} 
+              authorClassName={styles.author} 
               categoryClassName={styles.category}
             />
           </li>
